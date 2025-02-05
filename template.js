@@ -5,7 +5,7 @@
 
   // RequireJS
   } else if (typeof define === "function" && define.amd) {
-    define([], f);
+    define(defineAmdName(), [], f);
 
   // <script>
   } else {

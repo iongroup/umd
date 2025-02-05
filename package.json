@@ -1,6 +1,6 @@
 {
-  "name": "umd",
-  "version": "3.0.3",
+  "name": "@ionweb/umd",
+  "version": "3.0.3-ion1",
   "description": "Universal Module Definition for use in automated build systems",
   "bin": "./bin/cli.js",
   "dependencies": {},

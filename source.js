@@ -9,7 +9,9 @@ function template(moduleName, options) {
   } else if (!options) {
     options = {};
   }
-  var str = templateSTR.replace(/defineNamespace\(\)/g, compileNamespace(moduleName))
+  var str = templateSTR
+    .replace(/defineNamespace\(\)/g, compileNamespace(moduleName))
+    .replace(/defineAmdName\(\)/g, compileAmdName(moduleName))
     .split('source()')
   str[0] = str[0].trim();
   //make sure these are undefined so as to not get confused if modules have inner UMD systems
@@ -75,4 +77,8 @@ function compileNamespace(name) {
 function compileNamespaceStep(name) {
   name = camelCase(name);
   return 'g=(g.' + name + '||(g.' + name + ' = {}))';
+}
+
+function compileAmdName(name) {
+  return `"${name}"`;
 }
